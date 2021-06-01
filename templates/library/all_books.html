@@ -1,0 +1,115 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+    <div class="dashboard-content-one">
+        <!-- Breadcubs Area Start Here -->
+        <div class="breadcrumbs-area">
+            <h3>Library</h3>
+            <ul>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>All Library Books</li>
+            </ul>
+        </div>
+        <!-- Breadcubs Area End Here -->
+        <!-- Teacher Table Area Start Here -->
+        <div class="card height-auto">
+            <div class="card-body">
+                <div class="heading-layout1">
+                    <div class="item-title">
+                        <h3>All Books</h3>
+                    </div>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="all-book.html#" role="button"
+                           data-toggle="dropdown" aria-expanded="false">...</a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="all-book.html#"><i class="fas fa-times text-orange-red"></i>Close</a>
+                            <a class="dropdown-item" href="all-book.html#"><i
+                                    class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                            <a class="dropdown-item" href="all-book.html#"><i
+                                    class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                        </div>
+                    </div>
+                </div>
+                <form class="mg-b-20" method="get">
+                    {% csrf_token %}
+                    <div class="row gutters-8">
+                        <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                            <input type="text" name="barcode" placeholder="Search by Barcode ..." class="form-control">
+                        </div>
+                        <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                            <input type="text" name="name" placeholder="Search by Name ..." class="form-control">
+                        </div>
+                        <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                            <input type="text" name="writer" placeholder="Search by Writer ..." class="form-control">
+                        </div>
+                        <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+                            <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="table-responsive">
+                    <table class="table display data-table text-nowrap">
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input checkAll">
+                                    <label class="form-check-label">ID</label>
+                                </div>
+                            </th>
+                            <th>Book Name</th>
+                            <th>Subject</th>
+                            <th>Writter</th>
+                            <th>Class</th>
+                            <th>Published</th>
+                            <th>Creating Date</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for book in books %}
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input">
+                                        <label class="form-check-label">#{{ book.barcode }}</label>
+                                    </div>
+                                </td>
+                                <td>{{ book.name }}</td>
+                                <td>{{ book.category.name }}</td>
+                                <td>{{ book.writer }}</td>
+                                <td>{{ book.grade }}</td>
+                                <td>{{ book.published }}</td>
+                                <td>{{ book.creating_date }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="all-book.html#" class="dropdown-toggle" data-toggle="dropdown"
+                                           aria-expanded="false">
+                                            <span class="flaticon-more-button-of-three-dots"></span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="all-book.html#"><i
+                                                    class="fas fa-times text-orange-red"></i>Close</a>
+                                            <a class="dropdown-item" href="all-book.html#"><i
+                                                    class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                                            <a class="dropdown-item" href="all-book.html#"><i
+                                                    class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

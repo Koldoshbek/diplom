@@ -1,0 +1,108 @@
+{% load static %}
+{% load my_tags %}
+<div class="sidebar-menu-content">
+    <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+        <li class="nav-item sidebar-nav-item">
+            <a href="student-details.html#" class="nav-link"><i
+                    class="flaticon-dashboard"></i><span>Dashboard</span></a>
+            {% url 'admin_page' as admin_page %}
+            {% url 'student_page' as student_page %}
+            {% url 'teacher_page' as teacher_page %}
+            <ul class="nav sub-group-menu {% active_menu request admin_page %} {% active_menu request student_page %} {% active_menu request parent_page %} {% active_menu request teacher_page %}">
+                <li class="nav-item">
+                    <a href="{% url 'admin_page' %}" class="nav-link {% active request admin_page %}"><i
+                            class="fas fa-angle-right"></i>Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'student_page' %}" class="nav-link {% active request student_page %}"><i
+                            class="fas fa-angle-right"></i>Students</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'teacher_page' %}" class="nav-link {% active request teacher_page %}"><i
+                            class="fas fa-angle-right"></i>Teachers</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item sidebar-nav-item">
+            <a href="student-details.html#" class="nav-link"><i
+                    class="flaticon-classmates"></i><span>Students</span></a>
+            {% url 'all_students' as all_students %}
+            <ul class="nav sub-group-menu {% active_menu request all_students %} ">
+                <li class="nav-item">
+                    <a href="{% url 'all_students' %}" class="nav-link {% active request all_students %}"><i
+                            class="fas fa-angle-right"></i>All
+                        Students</a>
+                </li>
+                <li class="nav-item">
+                    <a href="student-details.html" class="nav-link"><i
+                            class="fas fa-angle-right"></i>Student Details</a>
+                </li>
+                <li class="nav-item">
+                    <a href="admit-form.html" class="nav-link"><i class="fas fa-angle-right"></i>Admission
+                        Form</a>
+                </li>
+                <li class="nav-item">
+                    <a href="student-promotion.html" class="nav-link"><i class="fas fa-angle-right"></i>Student
+                        Promotion</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item sidebar-nav-item">
+            <a href="student-details.html#" class="nav-link"><i
+                    class="flaticon-multiple-users-silhouette"></i><span>Teachers</span></a>
+            {% url 'all_teachers' as all_teachers %}
+            <ul class="nav sub-group-menu {% active_menu request all_teachers %}">
+                <li class="nav-item">
+                    <a href="{% url 'all_teachers' %}" class="nav-link {% active request all_teachers %}"><i
+                            class="fas fa-angle-right"></i>All
+                        Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teacher-details.html" class="nav-link"><i class="fas fa-angle-right"></i>Teacher
+                        Details</a>
+                </li>
+                <li class="nav-item">
+                    <a href="add-teacher.html" class="nav-link"><i class="fas fa-angle-right"></i>Add
+                        Teacher</a>
+                </li>
+                <li class="nav-item">
+                    <a href="teacher-payment.html" class="nav-link"><i
+                            class="fas fa-angle-right"></i>Payment</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item sidebar-nav-item">
+            <a href="student-details.html#" class="nav-link"><i class="flaticon-technological"></i><span>Acconunt</span></a>
+            <ul class="nav sub-group-menu">
+                <li class="nav-item">
+                    <a href="all-fees.html" class="nav-link"><i class="fas fa-angle-right"></i>All Fees
+                        Collection</a>
+                </li>
+                <li class="nav-item">
+                    <a href="all-expense.html" class="nav-link"><i
+                            class="fas fa-angle-right"></i>Expenses</a>
+                </li>
+                <li class="nav-item">
+                    <a href="add-expense.html" class="nav-link"><i class="fas fa-angle-right"></i>Add
+                        Expenses</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            {% url 'news' as news %}
+            <a href="{% url 'news' %}" class="nav-link {% active request news %}"><i class="flaticon-script"></i><span>Notice</span></a>
+        </li>
+        <li class="nav-item">
+            {% url 'message' as message %}
+            <a href="{% url 'message' %}" class="nav-link {% active request message %}"><i
+                    class="flaticon-chat"></i><span>Message</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a href="account-settings.html" class="nav-link"><i
+                    class="flaticon-settings"></i><span>Account</span></a>
+        </li>
+    </ul>
+</div>
