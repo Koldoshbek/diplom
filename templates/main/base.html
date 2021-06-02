@@ -66,12 +66,11 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="item-header">
-                            <h6 class="item-title">Steven Zone</h6>
+                            <h6 class="item-title">{{ request.user.first_name }} {{ request.user.last_name }}</h6>
                         </div>
                         <div class="item-content">
                             <ul class="settings-list">
-                                <li><a href="student-details.html#"><i class="flaticon-user"></i>My Profile</a></li>
-                                <li><a href="student-details.html#"><i class="flaticon-list"></i>Task</a></li>
+                                <li><a href="student-details.html#"><i class="flaticon-user"></i>Профиль</a></li>
                                 <li><a href="student-details.html#"><i
                                         class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Message</a>
                                 </li>
