@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
-from django.views.generic import TemplateView
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, CreateView
 
 
 @method_decorator(login_required, name='dispatch')
@@ -43,3 +44,8 @@ class LoginRequest(TemplateView):
         return render(request, self.template_name, context={
             'form': form,
         })
+
+class RegisterView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('profile')
+    template_name = 'main/register.html'

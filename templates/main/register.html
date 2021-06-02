@@ -27,7 +27,12 @@
                 </div>
                 <div class="form-group">
                     <label>Сыр соз</label>
-                    {{ form.password|add_class:'form-control'|attr:'placeholder:Enter password' }}
+                    {{ form.password1|add_class:'form-control'|attr:'placeholder:Enter password' }}
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="form-group">
+                    <label>Сыр соз кайталоо</label>
+                    {{ form.password2|add_class:'form-control'|attr:'placeholder:Enter repassword' }}
                     <i class="fas fa-lock"></i>
                 </div>
                 <div class="form-group d-flex align-items-center justify-content-between">
@@ -35,13 +40,11 @@
                         <input type="checkbox" class="form-check-input" id="remember-me">
                         <label for="remember-me" class="form-check-label">Мени сактап калуу</label>
                     </div>
-                    <a href="login.html#" class="forgot-btn">Сыр созду унуттунузбу?</a>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="login-btn">Кируу</button>
                 </div>
             </form>
-            <div class="sign-up">Аккаунтунуз жокпу? <a href="{% url 'register' %}">Катталуу!</a></div>
         </div>
     </div>
 </div>
