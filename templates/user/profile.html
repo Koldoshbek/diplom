@@ -51,56 +51,49 @@
                                 </ul>
                             </div>
                         </div>
-
-                        <div class="info-table table-responsive">
-                            <table class="table text-nowrap">
-                                <tbody>
-                                <tr>
-                                    <td>{% trans 'name' %}:</td>
-                                    <td class="font-medium text-dark-medium">{{ user.first_name }} {{ user.last_name }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{% trans 'gender' %}:</td>
-                                    {% if user.profile.gender == 1 %}
-                                        <td class="font-medium text-dark-medium">{% trans 'male' %}</td>
-                                    {% elif user.profile.gender == 2 %}
-                                        <td class="font-medium text-dark-medium">{% trans 'female' %}</td>
-                                    {% endif %}
-
-                                </tr>
-                                {% if user.profile.fathers_name %}
+                        <form action="">
+                            <div class="info-table table-responsive">
+                                <table class="table text-nowrap">
+                                    <tbody>
+                                    <tr>
+                                        <td>{% trans 'name' %}:</td>
+                                        <td class="font-medium text-dark-medium"><input type="text"></td>
+                                        <td>Резюме (PDF):</td>
+                                        <td><input type="file"></td>
+                                    </tr>
                                     <tr>
                                         <td>{% trans 'fathers_name' %}:</td>
-                                        <td class="font-medium text-dark-medium">{{ user.profile.fathers_name }}</td>
+                                        <td class="font-medium text-dark-medium"><input type="text"></td>
+                                        <td>Дипломка (PDF):</td>
+                                        <td><input type="file"></td>
                                     </tr>
-                                {% endif %}
-                                {% if user.profile.mothers_name %}
                                     <tr>
                                         <td>{% trans 'mothers_name' %}:</td>
-                                        <td class="font-medium text-dark-medium">{{ user.profile.mothers_name }}</td>
+                                        <td class="font-medium text-dark-medium"><input type="text"></td>
+                                        <td>Презентация (PDF):</td>
+                                        <td><input type="file"></td>
                                     </tr>
-                                {% endif %}
+                                    <tr>
+                                        <td>{% trans 'date_of_birth' %}:</td>
+                                        <td class="font-medium text-dark-medium"><input type="text"></td>
+                                    </tr>
 
-                                <tr>
-                                    <td>{% trans 'date_of_birth' %}:</td>
-                                    <td class="font-medium text-dark-medium">{{ user.profile.date_of_birth }}</td>
-                                </tr>
-
-                                <tr>
-                                    <td>E-mail:</td>
-                                    <td class="font-medium text-dark-medium">{{ user.email }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{% trans 'address' %}:</td>
-                                    <td class="font-medium text-dark-medium">{{ user.profile.address }}</td>
-                                </tr>
-                                <tr>
-                                    <td>{% trans 'phone_number' %}:</td>
-                                    <td class="font-medium text-dark-medium">{{ user.profile.phone_number }}</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                                    <tr>
+                                        <td>E-mail:</td>
+                                        <td class="font-medium text-dark-medium"><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans 'address' %}:</td>
+                                        <td class="font-medium text-dark-medium"><input type="text"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans 'phone_number' %}:</td>
+                                        <td class="font-medium text-dark-medium"><input type="text"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
